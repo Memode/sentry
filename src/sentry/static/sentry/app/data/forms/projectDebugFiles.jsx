@@ -1,4 +1,8 @@
-import _ from 'lodash';
+import forEach from 'lodash/forEach';
+import isObject from 'lodash/isObject';
+import forEach from 'lodash/forEach';
+import forEach from 'lodash/forEach';
+import set from 'lodash/set';
 import React from 'react';
 
 import {t} from 'app/locale';
@@ -13,9 +17,9 @@ export const route = '/settings/:orgId/projects/:projectId/debug-symbols/';
 
 function flattenKeys(obj) {
   const result = {};
-  _.forEach(obj, (value, key) => {
-    if (_.isObject(value)) {
-      _.forEach(value, (innerValue, innerKey) => {
+  forEach(obj, (value, key) => {
+    if (isObject(value)) {
+      forEach(value, (innerValue, innerKey) => {
         result[`${key}.${innerKey}`] = innerValue;
       });
     } else {
@@ -27,8 +31,8 @@ function flattenKeys(obj) {
 
 function unflattenKeys(obj) {
   const result = {};
-  _.forEach(obj, (value, key) => {
-    _.set(result, key.split('.'), value);
+  forEach(obj, (value, key) => {
+    set(result, key.split('.'), value);
   });
   return result;
 }

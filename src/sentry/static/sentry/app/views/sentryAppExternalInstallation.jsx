@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'react-emotion';
-import _ from 'lodash';
+import get from 'lodash/get';
+import get from 'lodash/get';
 
 import {t, tct} from 'app/locale';
 import Alert from 'app/components/alert';
@@ -53,11 +54,9 @@ export default class SentryAppExternalInstallation extends AsyncView {
   get isSentryAppUnavailableForOrg() {
     const {sentryApp, selectedOrgSlug} = this.state;
     //if the app is unpublished for a different org
-    return (
-      selectedOrgSlug &&
-      _.get(sentryApp, 'owner.slug') !== selectedOrgSlug &&
-      sentryApp.status === 'unpublished'
-    );
+    return selectedOrgSlug &&
+    get(sentryApp, 'owner.slug') !== selectedOrgSlug &&
+    sentryApp.status === 'unpublished';
   }
 
   get disableInstall() {
@@ -170,7 +169,7 @@ export default class SentryAppExternalInstallation extends AsyncView {
 
     if (this.isSentryAppUnavailableForOrg) {
       // use the slug of the owner if we have it, otherwise use 'another organization'
-      const ownerSlug = _.get(sentryApp, 'owner.slug', 'another organization');
+      const ownerSlug = get(sentryApp, 'owner.slug', 'another organization');
       return (
         <Alert type="error" icon="icon-circle-exclamation">
           {tct(

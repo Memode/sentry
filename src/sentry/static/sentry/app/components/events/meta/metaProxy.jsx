@@ -1,13 +1,17 @@
-import _ from 'lodash';
+import isEmpty from 'lodash/isEmpty';
+
+import isEmpty from 'lodash/isEmpty';
+import isEmpty from 'lodash/isEmpty';
+import isNull from 'lodash/isNull';
 
 const GET_META = Symbol('GET_META');
 const IS_PROXY = Symbol('IS_PROXY');
 
 function isAnnotated(meta) {
-  if (_.isEmpty(meta)) {
+  if (isEmpty(meta)) {
     return false;
   }
-  return !_.isEmpty(meta.rem) || !_.isEmpty(meta.err);
+  return !isEmpty(meta.rem) || !isEmpty(meta.err);
 }
 
 export class MetaProxy {
@@ -41,7 +45,7 @@ export class MetaProxy {
     if (
       !Reflect.has(obj, prop, receiver) ||
       typeof value !== 'object' ||
-      _.isNull(value)
+      isNull(value)
     ) {
       return value;
     }
