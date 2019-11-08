@@ -1,7 +1,4 @@
 import isEmpty from 'lodash/isEmpty';
-
-import isEmpty from 'lodash/isEmpty';
-import isEmpty from 'lodash/isEmpty';
 import isNull from 'lodash/isNull';
 
 const GET_META = Symbol('GET_META');
@@ -42,11 +39,7 @@ export class MetaProxy {
     }
 
     const value = Reflect.get(obj, prop, receiver);
-    if (
-      !Reflect.has(obj, prop, receiver) ||
-      typeof value !== 'object' ||
-      isNull(value)
-    ) {
+    if (!Reflect.has(obj, prop, receiver) || typeof value !== 'object' || isNull(value)) {
       return value;
     }
 

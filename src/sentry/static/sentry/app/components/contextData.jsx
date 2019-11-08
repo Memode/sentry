@@ -7,7 +7,6 @@ import classNames from 'classnames';
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import isArray from 'lodash/isArray';
-import isString from 'lodash/isString';
 
 import {isUrl} from 'app/utils';
 

@@ -48,7 +48,7 @@ const getResourceFromScope = (scope: Scope): Resource | undefined => {
     const allChoices = Object.values(permObj.choices);
 
     const allScopes = allChoices.reduce(
-      (_allScopes: string[], choice) => _allScopes.concat(choice?.scopes ?? [])),
+      (_allScopes: string[], choice) => _allScopes.concat(choice?.scopes ?? []),
       []
     );
 

@@ -1,10 +1,5 @@
 import isArray from 'lodash/isArray';
 import isUndefined from 'lodash/isUndefined';
-import isUndefined from 'lodash/isUndefined';
-import isUndefined from 'lodash/isUndefined';
-import isUndefined from 'lodash/isUndefined';
-import isUndefined from 'lodash/isUndefined';
-import isUndefined from 'lodash/isUndefined';
 import Reflux from 'reflux';
 
 import GroupActions from 'app/actions/groupActions';

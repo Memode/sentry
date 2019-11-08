@@ -23,9 +23,12 @@ const getPermissionSelectionsFromScopes = (scopes: Scope[]) => {
     let highestChoice: PermissionChoice | undefined;
     for (const perm in permObj.choices) {
       const choice = permObj.choices[perm];
-      const intersection = intersection(choice.scopes, scopes);
-      if (intersection.length > 0 && intersection.length === choice.scopes.length) {
-        if (!highestChoice || intersection.length > highestChoice.scopes.length) {
+      const scopesIntersection = intersection(choice.scopes, scopes);
+      if (
+        scopesIntersection.length > 0 &&
+        scopesIntersection.length === choice.scopes.length
+      ) {
+        if (!highestChoice || scopesIntersection.length > highestChoice.scopes.length) {
           highestChoice = choice;
         }
       }

@@ -1,5 +1,4 @@
 import isNil from 'lodash/isNil';
-import isNil from 'lodash/isNil';
 import forOwn from 'lodash/forOwn';
 import isObject from 'lodash/isObject';
 import PropTypes from 'prop-types';

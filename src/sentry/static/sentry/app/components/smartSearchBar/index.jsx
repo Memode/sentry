@@ -4,8 +4,6 @@ import React from 'react';
 import Reflux from 'reflux';
 import * as Sentry from '@sentry/browser';
 import debounce from 'lodash/debounce';
-import debounce from 'lodash/debounce';
-import debounce from 'lodash/debounce';
 import createReactClass from 'create-react-class';
 import styled, {css} from 'react-emotion';
 
