@@ -1,7 +1,8 @@
 import React from 'react';
 import {browserHistory} from 'react-router';
 import {Observer} from 'mobx-react';
-import omit from 'lodash/omit';
+import {omit} from 'lodash-es';
+import {get} from 'lodash-es';
 import scrollToElement from 'scroll-to-element';
 
 import {addSuccessMessage, addErrorMessage} from 'app/actionCreators/indicator';
@@ -48,7 +49,7 @@ const getResourceFromScope = (scope: Scope): Resource | undefined => {
     const allChoices = Object.values(permObj.choices);
 
     const allScopes = allChoices.reduce(
-      (_allScopes: string[], choice) => _allScopes.concat(choice?.scopes ?? []),
+      (_allScopes: string[], choice) => _allScopes.concat(get(choice, 'scopes', [])),
       []
     );
 
@@ -172,11 +173,11 @@ export default class SentryApplicationDetails extends AsyncView<Props, State> {
   };
 
   handleSubmitError = err => {
-    let errorMessage = 'Unknown Error';
+    let errorMessage = t('Unknown Error');
     if (err.status >= 400 && err.status < 500) {
-      errorMessage = err?.responseJSON?.detail ?? errorMessage
+      errorMessage = get(err, 'responseJSON.detail', errorMessage);
     }
-    addErrorMessage(t(errorMessage));
+    addErrorMessage(errorMessage);
 
     if (this.form.formErrors) {
       const firstErrorFieldId = Object.keys(this.form.formErrors)[0];
