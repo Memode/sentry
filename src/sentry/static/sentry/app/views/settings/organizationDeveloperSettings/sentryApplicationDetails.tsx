@@ -1,8 +1,8 @@
 import React from 'react';
 import {browserHistory} from 'react-router';
 import {Observer} from 'mobx-react';
-import {omit} from 'lodash-es';
-import {get} from 'lodash-es';
+import omit from 'lodash/omit';
+import get from 'lodash/get';
 import scrollToElement from 'scroll-to-element';
 
 import {addSuccessMessage, addErrorMessage} from 'app/actionCreators/indicator';
