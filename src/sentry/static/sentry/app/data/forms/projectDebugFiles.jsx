@@ -1,6 +1,4 @@
-import forEach from 'lodash/forEach';
 import isObject from 'lodash/isObject';
-import forEach from 'lodash/forEach';
 import forEach from 'lodash/forEach';
 import set from 'lodash/set';
 import React from 'react';
