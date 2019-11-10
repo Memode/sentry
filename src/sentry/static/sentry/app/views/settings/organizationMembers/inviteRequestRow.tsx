@@ -73,6 +73,7 @@ const InviteRequestRow = ({
           </Tooltip>
         )}
       </div>
+
       <RoleSelectControl
         name="role"
         disableUnallowed
@@ -80,6 +81,7 @@ const InviteRequestRow = ({
         value={inviteRequest.role}
         roles={allRoles}
       />
+
       <SelectControl
         name="teams"
         placeholder={t('Add to teams...')}
@@ -92,6 +94,7 @@ const InviteRequestRow = ({
         multiple
         clearable
       />
+
       <ButtonGroup>
         <Confirm
           onConfirm={sendInvites}
@@ -173,13 +176,14 @@ const StyledPanelItem = styled(PanelItem)`
   align-items: center;
 
   @media (max-width: ${p => p.theme.breakpoints[2]}) {
-    grid-template-columns: auto 100px max-content;
+    grid-template-columns: minmax(200px, auto) 100px 100px max-content;
   }
 `;
 
 const UserName = styled('div')`
   font-size: ${p => p.theme.fontSizeLarge};
-  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Description = styled('div')`
